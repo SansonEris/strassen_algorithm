@@ -1,11 +1,11 @@
 Flat profile:
 
 Each sample counts as 0.01 seconds.
+ no time accumulated
+
   %   cumulative   self              self     total           
- time   seconds   seconds    calls   s/call   s/call  name    
- 97.28      5.92     5.92        1     5.92     5.92  strassenMul
-  2.14      6.05     0.13                             _init
-  0.49      6.08     0.03                             copySubmatrix
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00        1     0.00     0.00  strassenMul
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -43,23 +43,13 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 0.16% of 6.08 seconds
+granularity: each sample hit covers 2 byte(s) no time propagated
 
 index % time    self  children    called     name
-                             329554456             strassenMul [1]
-                5.92    0.00       1/1           main [2]
-[1]     97.4    5.92    0.00       1+329554456 strassenMul [1]
-                             329554456             strassenMul [1]
------------------------------------------------
-                                                 <spontaneous>
-[2]     97.4    0.00    5.92                 main [2]
-                5.92    0.00       1/1           strassenMul [1]
------------------------------------------------
-                                                 <spontaneous>
-[3]      2.1    0.13    0.00                 _init [3]
------------------------------------------------
-                                                 <spontaneous>
-[4]      0.5    0.03    0.00                 copySubmatrix [4]
+                              960799             strassenMul [1]
+                0.00    0.00       1/1           main [11]
+[1]      0.0    0.00    0.00       1+960799  strassenMul [1]
+                              960799             strassenMul [1]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -152,4 +142,4 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [3] _init                   [4] copySubmatrix           [1] strassenMul
+   [1] strassenMul

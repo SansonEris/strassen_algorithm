@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 sizes = []
 times = []
 
-with open('performance.csv', newline='') as csvfile:
+with open('performance/performance.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         sizes.append(int(row['Matrix Size']))
