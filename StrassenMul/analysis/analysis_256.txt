@@ -3,8 +3,7 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  ms/call  ms/call  name    
- 90.97      0.10     0.10        1   100.07   100.07  strassenMul
-  9.10      0.11     0.01                             _init
+100.07      0.12     0.12        1   120.09   120.09  strassenMul
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -42,20 +41,17 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 9.08% of 0.11 seconds
+granularity: each sample hit covers 2 byte(s) for 8.33% of 0.12 seconds
 
 index % time    self  children    called     name
                              6725600             strassenMul [1]
-                0.10    0.00       1/1           main [2]
-[1]     90.9    0.10    0.00       1+6725600 strassenMul [1]
+                0.12    0.00       1/1           main [2]
+[1]    100.0    0.12    0.00       1+6725600 strassenMul [1]
                              6725600             strassenMul [1]
 -----------------------------------------------
                                                  <spontaneous>
-[2]     90.9    0.00    0.10                 main [2]
-                0.10    0.00       1/1           strassenMul [1]
------------------------------------------------
-                                                 <spontaneous>
-[3]      9.1    0.01    0.00                 _init [3]
+[2]    100.0    0.00    0.12                 main [2]
+                0.12    0.00       1/1           strassenMul [1]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -148,4 +144,4 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [3] _init                   [1] strassenMul
+   [1] strassenMul

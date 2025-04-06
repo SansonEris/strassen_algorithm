@@ -3,9 +3,9 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls   s/call   s/call  name    
- 98.17     35.08    35.08        1    35.08    35.08  strassenMul
-  1.18     35.51     0.42                             _init
-  0.55     35.70     0.20                             copySubmatrix
+ 97.73     35.67    35.67        1    35.67    35.67  strassenMul
+  1.59     36.25     0.58                             _init
+  0.59     36.47     0.22                             copySubmatrix
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -43,23 +43,23 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 0.03% of 35.70 seconds
+granularity: each sample hit covers 2 byte(s) for 0.03% of 36.47 seconds
 
 index % time    self  children    called     name
                              2306881199             strassenMul [1]
-               35.08    0.00       1/1           main [2]
-[1]     98.3   35.08    0.00       1+2306881199 strassenMul [1]
+               35.67    0.00       1/1           main [2]
+[1]     97.8   35.67    0.00       1+2306881199 strassenMul [1]
                              2306881199             strassenMul [1]
 -----------------------------------------------
                                                  <spontaneous>
-[2]     98.3    0.00   35.08                 main [2]
-               35.08    0.00       1/1           strassenMul [1]
+[2]     97.8    0.00   35.67                 main [2]
+               35.67    0.00       1/1           strassenMul [1]
 -----------------------------------------------
                                                  <spontaneous>
-[3]      1.2    0.42    0.00                 _init [3]
+[3]      1.6    0.58    0.00                 _init [3]
 -----------------------------------------------
                                                  <spontaneous>
-[4]      0.5    0.20    0.00                 copySubmatrix [4]
+[4]      0.6    0.22    0.00                 copySubmatrix [4]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by

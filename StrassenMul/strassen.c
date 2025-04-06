@@ -459,7 +459,6 @@ int main(int argc, char* argv[]) {
     }
     */
 
-    // 👉 Stampa compatibile con CSV: solo dimensione e tempo
     printf("%d,%f\n", originalSide, timeTaken);
 
     freeMatrix(&A);

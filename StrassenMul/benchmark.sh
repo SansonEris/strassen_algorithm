@@ -1,6 +1,11 @@
 #!/bin/bash
+set -e  # Exit immediately if any command fails
+
 echo "Compiling with -pg and -O3..."
-gcc -pg -O3 strassen.c -lm -o strassen
+gcc -pg -O3 strassen.c -lm -o strassen || { echo "Compilation failed."; exit 1; }
+
+mkdir -p performance
+mkdir -p analysis
 
 echo "Matrix Size,Time (seconds)" > performance/performance.csv
 
@@ -10,11 +15,9 @@ for power in {2..12}; do
 
     rm -f gmon.out
 
-    time=$(./strassen "$size")
-    
-    echo "${size},${time}" >> performance/performance.csv
+    output=$(./strassen "$size")
+    echo "$output" >> performance/performance.csv
 
-    # gprof profiling
     if [[ -f gmon.out ]]; then
         gprof strassen gmon.out > "analysis/analysis_${size}.txt"
         echo "Profiling saved to analysis/analysis_${size}.txt"
@@ -26,7 +29,7 @@ for power in {2..12}; do
 done
 
 echo "✅ All tests and profiling completed."
-read -p "display a graph of the benchmark data? (Y/n): " response
+read -p "Display a graph of the benchmark data? (Y/n): " response
 
 if [[ "$response" =~ ^[Yy]$ || "$response" == "" ]]; then
     echo "Executing the Python script..."
