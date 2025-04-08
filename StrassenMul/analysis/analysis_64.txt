@@ -5,6 +5,9 @@ Each sample counts as 0.01 seconds.
 
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00        3     0.00     0.00  allocMatrix
+  0.00      0.00     0.00        3     0.00     0.00  freeMatrix
+  0.00      0.00     0.00        1     0.00     0.00  nextPowerOfTwo
   0.00      0.00     0.00        1     0.00     0.00  strassenMul
 
  %         the percentage of the total running time of the
@@ -46,10 +49,19 @@ notice and this notice are preserved.
 granularity: each sample hit covers 2 byte(s) no time propagated
 
 index % time    self  children    called     name
-                              137256             strassenMul [1]
-                0.00    0.00       1/1           main [11]
-[1]      0.0    0.00    0.00       1+137256  strassenMul [1]
-                              137256             strassenMul [1]
+                0.00    0.00       3/3           main [12]
+[1]      0.0    0.00    0.00       3         allocMatrix [1]
+-----------------------------------------------
+                0.00    0.00       3/3           main [12]
+[2]      0.0    0.00    0.00       3         freeMatrix [2]
+-----------------------------------------------
+                0.00    0.00       1/1           main [12]
+[3]      0.0    0.00    0.00       1         nextPowerOfTwo [3]
+-----------------------------------------------
+                              137256             strassenMul [4]
+                0.00    0.00       1/1           main [12]
+[4]      0.0    0.00    0.00       1+137256  strassenMul [4]
+                              137256             strassenMul [4]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -142,4 +154,5 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [1] strassenMul
+   [1] allocMatrix             [3] nextPowerOfTwo
+   [2] freeMatrix              [4] strassenMul

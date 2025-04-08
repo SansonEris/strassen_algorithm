@@ -1,37 +1,72 @@
 # Strassen Algorithm Implementation with Three Temporary Matrices
 
-This project implements the Strassen matrix multiplication algorithm using only three temporary matrices 
-The algorithm handles square matrices of any size, including those that are not multiples of two, 
-as it pads the matrices to the next power of two before performing the multiplication.
+This project implements the Strassen matrix multiplication algorithm using only three temporary matrices. The code is organized into a library and multiple implementations, supporting square matrices of any size (including those not divisible by 2) by padding to the next power of two when necessary.
+
+## Project Structure
+
+The project is organized into four main directories:
+- `matrix_operation/`: Contains the shared library code for matrix operations
+- `Strassen/`: Implementation of the pure Strassen algorithm
+- `HybridStrassen/`: Implementation of a hybrid Strassen algorithm
+- `Mmul/`: Implementation of standard matrix multiplication
 
 ## Compilation
 
-To compile the program, use the following command:
+To compile any of the implementations, navigate to the respective directory and use:
 
 ```bash
-gcc -pg -O3 strassen.c -lm -o strassen
+gcc -pg -O3 [implementation].c -lm ../matrix_operation/matrix.c -o [executable_name]
 ```
 
-## Running the Program
+## Running the Programs
 
-To run the Strassen matrix multiplication, execute the following command:
+To run any implementation, execute:
 
 ```bash
-./strassen <matrix_size>
+./[executable_name] <matrix_size>
 ```
-Where <matrix_size> is the dimension (n x n) of the square matrices to multiply. For example, to multiply two 5x5 matrices, use 5.
 
-## Running a Benchmark
+Where `<matrix_size>` is the dimension (n × n) of the square matrices to multiply. For example, to multiply two 5×5 matrices with the Strassen implementation:
 
-To run a benchmark that measures the performance of the algorithm, use the following command:
+```bash
+cd Strassen
+./strassen 5
+```
+
+For the hybrid implementation, you need to add a `<cutoff>` value:
+
+```bash
+./[executable_name] <matrix_size> <cutoff>
+```
+
+## Benchmarking
+
+Each implementation directory contains its own benchmarking scripts to measure performance. To run a benchmark, use:
 
 ```bash
 ./benchmark.sh
 ```
-The benchmark will test matrix sizes from 2^0 to 2^12. 
-If you want to modify the maximum matrix size, you can do so by changing the value in the benchmark.sh script.
 
-## Performance Graph
+The benchmarks test matrix sizes from 2^0 to 2^12. You can modify the maximum matrix size by editing the corresponding benchmark.sh script in each directory.
 
-Here is the performance graph showing the execution times of the Strassen algorithm for various matrix sizes:
-![alt text](strassen_performance.png)
+- The benchmark.sh for the hybrid Strassen implementation requires a `<cutoff>` argument
+
+## Performance Analysis
+
+Performance graphs showing execution times for various matrix sizes are generated during benchmarking:
+
+![Performance graph](strassen_performance.png)
+
+## Finding the Optimal Cutoff Value for the Hybrid Implementation
+
+In the HybridStrassen directory, you can determine the optimal cutoff value by running:
+
+```bash
+python FindOptimalCutoff.py
+```
+
+## Implementations
+
+- **Strassen**: Pure Strassen algorithm with three temporary matrices
+- **Hybrid Strassen**: An optimized version that combines Strassen's method with standard multiplication for smaller matrix sizes
+- **Mmul**: Classic O(n³) matrix multiplication based on the definition

@@ -1,11 +1,12 @@
 Flat profile:
 
 Each sample counts as 0.01 seconds.
- no time accumulated
-
   %   cumulative   self              self     total           
- time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00        1     0.00     0.00  strassenMul
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+100.05      0.02     0.02        1    20.01    20.01  strassenMul
+  0.00      0.02     0.00        3     0.00     0.00  allocMatrix
+  0.00      0.02     0.00        3     0.00     0.00  freeMatrix
+  0.00      0.02     0.00        1     0.00     0.00  nextPowerOfTwo
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -43,13 +44,29 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) no time propagated
+granularity: each sample hit covers 2 byte(s) for 49.98% of 0.02 seconds
 
 index % time    self  children    called     name
                               960799             strassenMul [1]
-                0.00    0.00       1/1           main [11]
-[1]      0.0    0.00    0.00       1+960799  strassenMul [1]
+                0.02    0.00       1/1           main [2]
+[1]    100.0    0.02    0.00       1+960799  strassenMul [1]
                               960799             strassenMul [1]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]    100.0    0.00    0.02                 main [2]
+                0.02    0.00       1/1           strassenMul [1]
+                0.00    0.00       3/3           allocMatrix [3]
+                0.00    0.00       3/3           freeMatrix [4]
+                0.00    0.00       1/1           nextPowerOfTwo [5]
+-----------------------------------------------
+                0.00    0.00       3/3           main [2]
+[3]      0.0    0.00    0.00       3         allocMatrix [3]
+-----------------------------------------------
+                0.00    0.00       3/3           main [2]
+[4]      0.0    0.00    0.00       3         freeMatrix [4]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[5]      0.0    0.00    0.00       1         nextPowerOfTwo [5]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -142,4 +159,5 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [1] strassenMul
+   [3] allocMatrix             [5] nextPowerOfTwo
+   [4] freeMatrix              [1] strassenMul

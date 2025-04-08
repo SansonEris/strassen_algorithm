@@ -2,7 +2,7 @@
 set -e  # Exit immediately if any command fails
 
 echo "Compiling with -pg and -O3..."
-gcc -pg -O3 strassen.c -lm -o strassen || { echo "Compilation failed."; exit 1; }
+gcc -pg -O3 strassen.c -lm ../matrix_operation/matrix.c -o strassen || { echo "Compilation failed."; exit 1; }
 
 mkdir -p performance
 mkdir -p analysis
