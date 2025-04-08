@@ -1,6 +1,6 @@
 # Strassen Algorithm Implementation with Three Temporary Matrices
 
-This project implements the Strassen matrix multiplication algorithm using only three temporary matrices. The code is organized into a library and multiple implementations, supporting square matrices of any size (including those not divisible by 2) by padding to the next power of two when necessary.
+This project implements the Strassen matrix multiplication algorithm using only three temporary matrices. The code is organized into a library and multiple implementations, supporting square matrices of any size by padding to the next power of two when necessary.
 
 ## Project Structure
 
