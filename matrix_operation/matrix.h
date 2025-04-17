@@ -191,6 +191,7 @@ int copySubmatrix(struct Matrix* A, int rowA, int colA,
                   struct Matrix* C, int rowC, int colC,
                   int blockSize);
 
+
 /**
  * Performs conventional matrix multiplication
  * Computes C = A * B using the standard O(n³) algorithm
